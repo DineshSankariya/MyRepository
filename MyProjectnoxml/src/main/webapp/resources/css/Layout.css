@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Ubuntu&display=swap');
+
+#d {
+	width: 40px;
+	
+}
+
+#al {
+	text-align: center;
+	width: 100%;
+	line-height: 60%;
+}
+
+.fo {
+	font-size: 3rem;
+	margin:0 auto;
+	margin-top: 15%;
+	
+	text-shadow: 2px 2px 4px #000000;
+	/*font-family: 'IM Fell Double Pica SC', serif;*/
+}
+
+#b {
+	background-color: #fff;
+	margin: 0px;
+}
+
+#a {
+	font-size: 20px;
+}
+
+.mar {
+	margin-left: 10px;
+}
+
+.p {
+	width: 50%;
+}
+
+#rule {
+	width: 50%;
+}
+
+#t {
+	color: white;
+}
+
+.tes {
+	line-height: 30px;
+	display: block;
+	
+}
+
+#im {
+	display: block;
+	max-width: 7%;
+	height: auto;
+	margin: 0 auto;
+	padding-top: 70px;
+	text-align: center;
+	
+}
+
+.cen {
+	text-align: center;
+}
+
+#alig {
+	margin-left: 300px;
+}
+
+#car {
+	padding-left: 100px;
+	padding-right: 80px;
+	text-align: center;
+}
+
+.fon {
+	font-family: 'Montserrat-Black', sans-serif;
+	font-weight: bolder;
+	color: white;
+	padding-top: 30px;
+	margin: 0 auto;
+}
+
+.pa {
+	padding-top: 20px;
+	padding-bottom: 50px;
+	max-width: 300px;
+	margin: 0 auto;
+	font-weight: bold;
+}
+
+.dis{
+	float: right;
+}
+
+#fobtn{
+	padding-top:15px;
+	float: right;
+}
+
+.img{
+	max-width: 20%;
+	height: auto;
+	margin: 0 auto;
+}
+
+
+#cont{
+	text-align: center;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	
+}
+
+.sp{
+	padding-top: 15px;
+	font-weight: bold;
+}
+
+.blo{
+  width: 150px;
+  display: inline-block;
+}
+
+.copylink{
+	color: white;
+}
+.copylink:hover{
+	color: orange;
+}
+
+#carone{
+	background-image: url("file:///C:/Users/Admin/git/MyProject/Project/WebContent/resources/image/bright-clouds-country-440731.jpg");
+}
+
+#bo{
+	background-size:cover;
+	height: 90%;
+}
+
+.pad{
+	padding-bottom: 450px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

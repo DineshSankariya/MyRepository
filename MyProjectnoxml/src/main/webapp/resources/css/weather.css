@@ -1,0 +1,31 @@
+body {
+	background-color: #
+	
+}
+
+form {
+	position: absolute;
+	left: 510px;
+	top: 50px;
+
+}
+
+#display {
+	position: absolute;
+	left: 420px;
+	top: 130px;
+	width: 500px;
+	height: 480px;
+	border: 15px solid white;
+	box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+	border-radius: 20px;
+}
+
+#weather-input{
+	width: 190px;
+}
+
+#get{
+	display: block;
+}
+

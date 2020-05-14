@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+
+
+.title {
+	color: white;
+	position: absolute;
+	top: 280px;
+	left: 285px;
+	font-size: 50px;
+	
+}
+
+.title-1 {
+	color: white;
+	position: absolute;
+	top: 350px;
+	left: 515px;
+	font-size: 30px;
+	font-family: 'Roboto', sans-serif;
+	
+}
+
+.butnsign {
+	position: absolute;
+	top: 430px;
+	left:610px;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 0px;
+	border: 0px solid ;
+	padding-right:30px;
+	padding-left:30px;
+	padding-top:13px;
+	padding-bottom:13px;
+	background-color: #1089ff;
+	color: #ffffff;
+	
+}
+
+.butnsign:hover{
+	color: white;
+	text-decoration: none;
+	background-color: #000000;
+	transition:1s ease;
+}
+
+
+#login{
+	position: absolute;
+	right:160px;
+	top: 29px;
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 16px;
+	font-family: Poppins, sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+	
+	
+}
+
+#login:hover{
+	color: black;
+	transition:0.8s ease;
+}
+
+
+#signup{
+	color: #ffffff;
+	position: absolute;
+	right:30px;
+	top: 22px;
+	border: 2px solid white;
+	padding-top:5px;
+	padding-left:10px;
+	padding-right:10px;
+	padding-bottom:5px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 16px;
+	font-family:Poppins, sans-serif;
+	font-weight: bold;
+	
+	
+	
+}
+
+#signup:hover{
+
+	background-color: white;
+	color: black;
+	transition:1s ease;
+}
+
+#menu li {
+	display: inline-block;
+	padding-right: 10px;
+		
+}
+
+
+/*#menu li a{
+	padding:5px;
+	text-decoration: none;
+	color: #ffffff;
+	position:  absolute;
+	top: 20px;
+	
+}
+
+*#menu li a:hover{
+
+	color: #1089ff;
+	transition:0.8s ease;
+	
+}*/
+#menu {
+	padding-top: 0px;
+}
+
+.div-1{
+	/*background: linear-gradient(to right bottom, #3fa8ed, #008aed, #006ae8, #0046db, #0109c4);*/
+	height: 663px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	background-size: cover;
+
+}
+
+#cont {
+	text-align: center;
+	padding-top: 200px;
+	padding-bottom: 100px;
+	position: absolute;
+	bottom: -300px;
+	left:105px;
+	bottom:-410px;
+}
+
+.img {
+	max-width: 22%;
+	height: auto;
+	margin: 0 auto;
+	background-image: #1089ff;
+}
+
+.sp {
+	padding-top: 15px;
+	font-weight: bold;
+}
+
+.blo {
+	width: 150px;
+	display: inline-block;
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+	background-color: fuchsia;
+	
+}
+
+.mycaro{
+	background-image: linear-gradient(to right bottom, #3fa8ed, #008aed, #006ae8, #0046db, #0109c4);
+	padding-top:20px;
+}
+
+.mycarocontent{
+	color: white;
+	text-align: center;
+}
+
+.mycarotitle{
+	padding-top:80px;
+}
+
+#left-arrow{
+	height: 45px;
+}
+
+#right-arrow{
+	height: 45px;
+}
+
+
+

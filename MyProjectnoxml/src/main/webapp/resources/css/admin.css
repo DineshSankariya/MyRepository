@@ -1,0 +1,35 @@
+table{
+	
+	margin: 0 auto;
+	
+	
+}
+
+th{
+	padding: 10px;
+	background-color:silver;
+}
+
+td {
+	
+	padding: 10px;
+	background-color:buttonface;
+	
+}
+
+.cre{
+	margin: 0 auto;
+	text-align: center;	
+	margin-top: 80px;
+}
+
+.fo{
+	font-weight: bold;
+}
+
+.logout{
+	margin-left:45%;
+	padding: 30px;
+}
+
+

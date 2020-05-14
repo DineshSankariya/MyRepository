@@ -1,0 +1,6 @@
+@import url("http://www.springframework.org/tags/form");
+
+
+#logo{
+	background-image: url("${pageContext.request.contextPath}/resources/image/Surveytour.png");
+}

@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+#login{
+	
+	position:absolute;
+	top:-61px;
+	right: -1050px;
+	font-weight:bold;
+	color:black;
+	font-size: 15px;
+	text-decoration: none;
+	font-family: Poppins, sans-serif;
+	
+}
+
+#signup{
+	
+	position: absolute;
+	top:-61px;
+	color:black;
+	text-decoration: none;
+	font-weight:bold;
+	font-size: 15px;
+	text-decoration: none;
+	right: -1150px;
+	font-family: Poppins, sans-serif;
+}
+
+#login:hover{
+	/*color: #ffd369;*/	
+	color: #08B8FF;
+} 
+#signup:hover{
+	/*color: #ffd369;*/
+	color: #08B8FF;
+	
+}
+
+#rule{
+	position:absolute;
+	top:50px;
+	left:0px;
+	right:0px;
+	width:99.5%;
+	border: 1px solid #f4f4f4;
+	
+}
+
+#section-1{
+	height:550px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top:140px;
+	background-position: center;
+	box-sizing: border-box;
+}
+
+#mail{
+	
+	position: absolute;
+	top:29px;
+	right:320px;
+	float: right;
+	font-size: 13px;
+	color: #919191;
+	font-family: Poppins, sans-serif;
+}
+
+#contact{
+	top:29px;
+	right:165px;
+	position: absolute;
+	font-size: 13px;
+	color: #919191;
+	font-family: Poppins, sans-serif;
+	
+}
+
+.title {
+	color: white;
+	position: absolute;
+	top: 235px;
+	left: 235px;
+	font-size: 50px;
+	font-family: Poppins, sans-serif;
+	
+}
+
+.title-1 {
+	
+	color: white;
+	position: absolute;
+	top: 305px;
+	left: 515px;
+	font-size: 25px;
+	font-family: Poppins, sans-serif;
+	
+}
+
+.butnsign {
+	position: absolute;
+	top: 375px;
+	left:610px;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 0px;
+	border: 1px solid #1089ff;
+	padding-right:30px;
+	padding-left:30px;
+	padding-top:13px;
+	padding-bottom:13px;
+	background-color: #1089ff;
+	color: #ffffff;
+	/*vbackground-color: #ffd369;
+	color: black;*/
+	
+}
+
+.butnsign:hover{
+	/*color: white;*/
+	text-decoration: none;
+	transition:0.5s ease;
+	background-color: transparent;
+	/*color: #ffd369;*/
+	border:1px solid  #1089ff;
+	color: #08B8FF;
+}
+
