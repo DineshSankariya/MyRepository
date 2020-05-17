@@ -18,6 +18,7 @@
 	crossorigin="anonymous"></script>
 	<div id="container"></div>
 	<input type="hidden" value="${surveyid}" id="surid">
+	<input type="hidden" value="${surveyname}" id="surname">
 <script type="text/javascript">
 	
 	/*$(document).ready(
@@ -65,7 +66,9 @@
 $(document).ready(function(){
 			
 			var id=document.getElementById("surid").value;
+			var name=document.getElementById("surname").value;
 			console.log(id);
+			console.log(name);
 		
 		$.ajax({
 			
@@ -110,7 +113,7 @@ $(document).ready(function(){
 		        }
 		    },
 		    title: {
-		        text: 'Survey Analysis'
+		        text: name
 		        
 		    },
 		    accessibility: {

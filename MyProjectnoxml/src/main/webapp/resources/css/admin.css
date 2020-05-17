@@ -1,20 +1,21 @@
 table{
 	
 	margin: 0 auto;
-	
-	
+	border-radius: 25px;
+	margin-top:25px;
 }
 
 th{
 	padding: 10px;
-	background-color:silver;
+	background-color:#52de97;
+	height: 55px;
 }
 
 td {
 	
 	padding: 10px;
-	background-color:buttonface;
-	
+	/*background-color:buttonface;*/
+	height: 45px;
 }
 
 .cre{
@@ -30,6 +31,14 @@ td {
 .logout{
 	margin-left:45%;
 	padding: 30px;
+}
+
+tr:nth-child(odd){
+	background-color:#dddddd;
+}
+
+tr:nth-child(even) {
+	background-color:#ffffff;
 }
 
 

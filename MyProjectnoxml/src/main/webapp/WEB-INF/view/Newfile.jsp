@@ -14,6 +14,7 @@
 	crossorigin="anonymous"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	
 	$('a').click(function(event){
 		
 		var url=$(this).attr('id')
@@ -24,11 +25,10 @@ $(document).ready(function(){
 			url : "${pageContext.request.contextPath}/user/"+$(this).attr('id'),
 			success : function(data) {
 				
-				
-					$('.main').load(url)
-			}
-				
-			,
+					$('.main').load(url);
+						
+					
+			},
 			error : function(e) {
 				console.log("ERROR: ", e);
 				display(e);
@@ -36,6 +36,8 @@ $(document).ready(function(){
 			
 		})
 	})
+	
+
 })
 
 </script>
@@ -90,7 +92,7 @@ $(document).ready(function(){
 	position: absolute;
 	width: auto;
 	margin-top: 30px;
-	left:-200px;
+	left:-250px;
 	
 }
 
@@ -107,9 +109,18 @@ $(document).ready(function(){
 
 
 		<ul>
-			<li><a id="init"
-				href="${pageContext.request.contextPath}/user/init">Home </a></li>
-			<li><a id="surveypag" href="#">Survey </a></li>
+			<c:url var="Home" value="LogIn">
+				<c:param name="email" value="${userid.email}"></c:param>
+				<c:param name="password" value="${userid.password}"></c:param>
+			</c:url>
+			<li><a  
+				href="${Home}">Home </a></li>
+			<li>
+			<input type="hidden" name="userid" value="${userid.id}"/>
+			<c:url var="survey" value="surveypag">
+				<c:param name="userid" value="${userid.id}"></c:param>				
+			</c:url>
+			<a id="${survey}" href="#">Survey </a></li>
 			
 				<c:url var="profileupdate" value="profile">
 					<c:param name="toupdate" value="${userid.id}"></c:param>
@@ -119,12 +130,12 @@ $(document).ready(function(){
 			<a id="${profileupdate}" href="#">Profile</a>
 			</li>
 			<li><a id="init"
-				href="${pageContext.request.contextPath}/user/init">Log Out </a></li>
+				href="${pageContext.request.contextPath}/user/Log">Log Out </a></li>
 		</ul>
 	</div>
 	</div>
-	<div class="col-6">
-	<div class="main"></div>
+	<div class="col-6 ">
+	 <div class="main"></div> 
 	</div>
 	</div>
 

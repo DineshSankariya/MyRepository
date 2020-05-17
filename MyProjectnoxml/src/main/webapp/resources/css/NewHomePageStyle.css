@@ -4,38 +4,56 @@
 #login{
 	
 	position:absolute;
-	top:-61px;
-	right: -1050px;
+	top:-71px;
+	right: -1070px;
 	font-weight:bold;
 	color:black;
 	font-size: 15px;
 	text-decoration: none;
 	font-family: Poppins, sans-serif;
+	padding:10px 20px 10px 20px;
 	
 }
 
 #signup{
 	
 	position: absolute;
-	top:-61px;
+	top:-71px;
 	color:black;
 	text-decoration: none;
 	font-weight:bold;
 	font-size: 15px;
 	text-decoration: none;
-	right: -1150px;
+	right: -1170px;
 	font-family: Poppins, sans-serif;
+	padding:10px 20px 10px 20px;
+	
+	
 }
 
+
 #login:hover{
+	
 	/*color: #ffd369;*/	
 	color: #08B8FF;
+	background-color: #f4f3f3;
+	border-bottom:3px solid;
+	border-bottom-color: #08B8FF;	
+	transition:background-color  0.8s ease-in-out;
+
+	
+	
 } 
 #signup:hover{
 	/*color: #ffd369;*/
 	color: #08B8FF;
+	background-color: #f4f3f3;
+	border-bottom:3px solid;
+	border-bottom-color: #08B8FF;
+	transition:background-color  0.8s ease-in-out;
 	
 }
+
 
 #rule{
 	position:absolute;

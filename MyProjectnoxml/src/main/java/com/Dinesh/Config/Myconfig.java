@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -20,8 +18,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import com.sun.mail.smtp.*;
-
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 @Configuration
@@ -31,8 +27,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 public class Myconfig implements WebMvcConfigurer {
 	
 	
-	@Autowired
-	private Environment env;
+	
 	
 	@Bean
 	public ViewResolver viewResolver() {
@@ -60,7 +55,7 @@ public class Myconfig implements WebMvcConfigurer {
 		
 		
 		// set database connection props
-		myDataSource.setJdbcUrl("jdbc:mysql://localhost:3306/survey?useSSL=false");
+		myDataSource.setJdbcUrl("jdbc:mysql://localhost:3306/survey?allowPublicKeyRetrieval=true&useSSL=false");
 		myDataSource.setUser("survey");
 		myDataSource.setPassword("Dinesh_@123");
 		
@@ -74,15 +69,7 @@ public class Myconfig implements WebMvcConfigurer {
 	}
 	
 	
-	private int getIntProperty(String propName) {
-		
-		String propVal = env.getProperty(propName);
-		
-		// now convert to int
-		int intPropVal = Integer.parseInt(propVal);
-		
-		return intPropVal;
-	}	
+	
 	
 	private Properties getHibernateProperties() {
 

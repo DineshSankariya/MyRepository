@@ -19,19 +19,29 @@
 table{
 	
 	margin: 0 auto;
+	width: 700px;
 	
-	
+}
+
+tr:nth-child(odd){
+	background-color:#dddddd;
+}
+
+tr:nth-child(even) {
+	background-color:#ffffff;
 }
 
 th{
 	padding: 10px;
-	background-color:silver;
+	background-color:#52de97;
+	height: 50px;
 }
 
 td {
 	
 	padding: 10px;
-	background-color:buttonface;
+	
+	height: 50px;
 	
 }
 
@@ -52,7 +62,7 @@ td {
 </style>
 </head>
 <body>
-	<table border="6">
+	<table >
 		<tr>
 			<th>Sr.No</th>
 			<th>Survey Name</th>
@@ -61,11 +71,20 @@ td {
 		<c:forEach var="temp" items="${surveylink}" varStatus="loop">
 			<c:url var="surveys" value="/user/surveypage">
 				<c:param name="surveylist" value="${temp.id}"></c:param>
+				<c:param name="userid" value="${userid}"></c:param>
 			</c:url>
 			<tr>
 				<td>${loop.count}</td>
 				<td>${temp.name}</td>
-				<td><a href="${surveys}" class="badge badge-success">Go</a></td>
+				<td>
+					<c:if test="${status='true'}">
+						<a href="${surveys}" class="badge badge-success">Go</a>
+					</c:if>
+					<c:if test="${status='false'}">
+						<a href="#" class="badge badge-success">Go</a>
+					</c:if>
+				</td>
+				
 
 			</tr>
 		</c:forEach>

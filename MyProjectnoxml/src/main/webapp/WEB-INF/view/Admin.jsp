@@ -68,7 +68,7 @@
 			</a><label class="fo">Send Mail</label>
 		</div>
 
-		<table border="6">
+		<table >
 
 			<tr>
 				<th>Sr.No</th>

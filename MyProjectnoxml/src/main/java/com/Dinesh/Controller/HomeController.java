@@ -46,6 +46,7 @@ public class HomeController {
 	public String homepage(Model model) {
 
 		return "NewHomePageStyle";
+		
 	}
 
 	@RequestMapping("/home")
@@ -110,6 +111,11 @@ public class HomeController {
 
 		return "logpage";
 	}
+	
+	@RequestMapping("/newloginpage")
+	public String loginpage() {
+		return "newloginpage";
+	}
 
 	@RequestMapping("/Log?logout")
 	public String logout(Model model) {
@@ -122,9 +128,11 @@ public class HomeController {
 		if (userdao.searchuser(email, password)) {
 
 			if (userdao.checkAdmin(email, password)) {
+				
 				model.addAttribute("Surveys", userdao.listsurvey());
 				model.addAttribute("userid", userdao.getuserid(email));
 				return "Admin";
+				
 			}
 			model.addAttribute("Surveys", userdao.listsurvey());
 			model.addAttribute("surveylink", userdao.listsurvey());
@@ -245,6 +253,7 @@ public class HomeController {
 		model.addAttribute("surveyid", request.getParameter("surveylist"));
 		model.addAttribute("userid", request.getParameter("userid"));
 		return "survey1";
+		
 	}
 
 	@RequestMapping("/alterquestion")
@@ -257,7 +266,6 @@ public class HomeController {
 	public String deleteque(@RequestParam("deleteqlink") int id, Model model) {
 
 		userdao.deletequestion(id);
-
 		return "redirect:/user/admin";
 
 	}
@@ -316,12 +324,24 @@ public class HomeController {
 	}
 
 	@RequestMapping("/surveypag")
-	public String viewsurveylist(Model model,HttpServletRequest request) {
+	public String viewsurveylist(@RequestParam("userid") String id, Model model,HttpServletRequest request) {
 		
-		String idString=request.getParameter("userid");
+		int idString=Integer.parseInt(id);
 		model.addAttribute("useridonly", idString);
-		System.out.println(idString);
+		System.out.println("<================ "+idString+" =================>");
 		model.addAttribute("surveylink", userdao.listsurvey());
+		List<Result> newresult=userdao.getuser(idString).getResult();
+		if(newresult.size()>0) {
+			if(newresult.get(0).getStatus()== true) {
+				System.out.println(newresult.get(0).getStatus()+"=====================");
+				model.addAttribute("status",newresult.get(0).getStatus());	
+				model.addAttribute("userid",idString);
+			}
+		}else {
+			System.out.println("===============================><========================");
+			model.addAttribute("status",false);
+			model.addAttribute("userid",idString);
+		}
 		return "Surveypage";
 	}
 
@@ -357,7 +377,6 @@ public class HomeController {
 		SurveyTable survey = userdao.getsurvey(surveyid);
 		String[] q = request.getParameterValues("questionid");
 		for (String a : q) {
-
 			
 			int qid=Integer.parseInt(a);
 			Question que=userdao.getquestion(qid);

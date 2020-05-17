@@ -8,9 +8,9 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" style="text/css"
+<link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
-<link rel="stylesheet" style="text/css"
+<link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/css/formstyle.css" />
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -87,12 +87,9 @@
 			</div>
 
 			<div class="col-6 " style="background-color: #fcfcfc;">
-				<form:form action="LogIn" class="d">
-					<c:if test="${param.error!=null}">
-						<i>Logged out</i>
-					</c:if>
+				<form:form action="LogIn" class="d">					
 					<div class="form-group">
-						<input type="email" name="email" class="form-control" id="email"
+						<input type="text" name="email" class="form-control" id="email"
 							placeholder="Email" />
 					</div>
 
