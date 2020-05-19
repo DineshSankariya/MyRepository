@@ -44,6 +44,7 @@ $(document).ready(function(){
 <style type="text/css">
 .image {
 	margin: 0 auto;
+	
 }
 
 .image nav ul li {
@@ -94,6 +95,7 @@ $(document).ready(function(){
 	margin-top: 30px;
 	left:-250px;
 	
+	
 }
 
 .sidebar ul li:hover {
@@ -103,8 +105,8 @@ $(document).ready(function(){
 </head>
 <body class="image">
 	
-	<div class="row ">
-	<div class="col-6">
+	<div class="row "> 
+	<div class="col-6 ">
 	<div class="sidebar ">
 
 
