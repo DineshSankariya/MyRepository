@@ -13,9 +13,10 @@
 
 </head>
 <body>
-
+	
 	<form:form action="savesurvey" modelAttribute="createsurvey"
 		cssClass="form-horizontal ">
+		<input type="hidden" name="userid" value="${userid}">
 		<form:hidden path="id"/>
 		<div class=" form">
 

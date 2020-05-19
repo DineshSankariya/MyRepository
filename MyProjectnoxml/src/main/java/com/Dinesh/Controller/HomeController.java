@@ -2,6 +2,7 @@ package com.Dinesh.Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.ProcessBuilder.Redirect;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.Dinesh.DAO.UserDaoInterface;
 import com.Dinesh.DataBaseEntity.Question;
@@ -131,6 +133,7 @@ public class HomeController {
 				
 				model.addAttribute("Surveys", userdao.listsurvey());
 				model.addAttribute("userid", userdao.getuserid(email));
+				System.out.println(userdao.getuserid(email).getId());
 				return "Admin";
 				
 			}
@@ -190,16 +193,18 @@ public class HomeController {
 	}
 
 	@RequestMapping("/createsurvey")
-	public String createsurvey(Model model,HttpServletRequest request) {
+	public String createsurvey(Model model,HttpServletRequest request,@RequestParam("userid")String userid) {
 
 		model.addAttribute("createsurvey", new SurveyTable());
-		
+		model.addAttribute("userid",userid);
+		System.out.println(userid);
+		//System.out.println(request.getParameter("email"));
 		return "surveyform";
 
 	}
 
 	@RequestMapping("/savesurvey")
-	public String savesurvey(@ModelAttribute("createsurvey") SurveyTable tosave) {
+	public String savesurvey(@ModelAttribute("createsurvey") SurveyTable tosave,HttpServletRequest request,RedirectAttributes redirect) {
 
 		surveydetails.put(tosave.getId(), tosave);
 		userdao.savesurvey(tosave);
@@ -213,9 +218,12 @@ public class HomeController {
 		  message.setTo(rec); message.setSubject("New survey");
 		  message.setText("We have created a new survey "+tosave.getName());
 		  mailsender.send(message);*/
-		 
-
-		return "redirect:/user/admin";
+		 System.out.println("********"+request.getParameter("userid")+"****************");
+		
+		User admin=userdao.getuser(Integer.parseInt(request.getParameter("userid")));
+		String paramtopass="?email="+admin.getEmail()+"&password="+admin.getPassword();
+		System.out.println(paramtopass+"***"+request.getAttribute("id"));
+		return "redirect:/user/LogIn"+paramtopass;
 
 	}
 
@@ -227,22 +235,26 @@ public class HomeController {
 	}
 
 	@RequestMapping("/surveyupdate")
-	public String updatesurvey(@RequestParam("link") int id, Model model) {
-
+	public String updatesurvey(@RequestParam("link") int id, Model model,HttpServletRequest request) {
+		
 		SurveyTable update = userdao.getsurvey(id);
-
+		User admin=userdao.getuser(Integer.parseInt(request.getParameter("userid")));
 		model.addAttribute("createsurvey", update);
-
+		model.addAttribute("user",admin);
+		System.out.println(admin.toString()+"*********");
 		return "update-survey";
 
 	}
 
 	@RequestMapping("/deletesurvey")
-	public String deletesurvey(@RequestParam("deletelink") int id, Model model) {
+	public String deletesurvey(@RequestParam("deletelink") int id, Model model,HttpServletRequest request) {
 
+		//System.out.println(request.getParameter("userid"));
+		//System.out.println(request.getParameter("email"));
+		User admin=userdao.getuser(Integer.parseInt(request.getParameter("userid")));
+		String paramtopass="?email="+admin.getEmail()+"&password="+admin.getPassword();
 		userdao.deletesurvey(id);
-
-		return "redirect:/user/admin";
+		return "redirect:/user/LogIn"+paramtopass;
 
 	}
 
@@ -271,8 +283,12 @@ public class HomeController {
 	}
 
 	@RequestMapping("/listuser")
-	public String Listuser(Model model) {
+	public String Listuser(Model model,HttpServletRequest request) {
 		model.addAttribute("Users", userdao.listcutomer());
+		User admin=userdao.getuser(Integer.parseInt(request.getParameter("userid")));
+		//String paramtopass="?email="+admin.getEmail()+"&password="+admin.getPassword();
+		model.addAttribute("email", admin.getEmail());
+		model.addAttribute("password", admin.getPassword());
 		return "Listusers";
 	}
 

@@ -151,7 +151,7 @@ $(document).ready(function(){
 					
 					<%}else{ %>
 					
-						<a href="#" class="badge badge-success taken">Go</a>
+						<a href="#" class="badge badge-danger taken">Go</a>
 					
 					<%} %>
 					

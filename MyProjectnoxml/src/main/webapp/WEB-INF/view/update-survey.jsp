@@ -1,4 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page contentType="text/html; charset=iso-8859-1" language="java"%>
 <html>
 <head>
 
@@ -18,7 +20,13 @@
 		cssClass="form-horizontal ">
 		<div class=" form">
 		<form:hidden path="id"/>
-
+		<input type="hidden" name="email" value="${user.email}"/>
+		<input type="hidden" name="password" value="${user.password}"/>
+		<input type="hidden" name="userid" value="${user.id}">
+			<c:url var="admin" value="LogIn">
+				<c:param name="email" value="${user.email}"></c:param>
+				<c:param name="password" value="${user.password}"></c:param>
+			</c:url>
 			<div class="form-group ">
 
 				<label >Survey Name :</label>
@@ -33,7 +41,7 @@
 			</div>
 			
 			<div>
-				<a href="${pageContext.request.contextPath}/user/admin" class="cen">Home
+				<a href="${admin}" class="cen">Home
 					</a>
 			</div>
 		</div>

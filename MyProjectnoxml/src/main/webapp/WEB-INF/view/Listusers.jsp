@@ -47,8 +47,12 @@
 		</c:forEach>
 
 	</table>
+	<c:url var="back" value="/user/LogIn">
+		<c:param name="email" value="${email}"></c:param>
+		<c:param name="password" value="${password}"></c:param>
+	</c:url>
 	<div style="text-align: center; padding: 30px">
-		<a href="admin" class="cen" id="hide">Back to home </a>
+		<a href="${back}" class="cen" id="hide">Back to home </a>
 	</div>
 </body>
 

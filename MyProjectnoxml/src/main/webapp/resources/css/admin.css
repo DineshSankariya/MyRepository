@@ -41,4 +41,8 @@ tr:nth-child(even) {
 	background-color:#ffffff;
 }
 
+.disable{
+ pointer-events: none;
+  cursor: default;
+}
 
