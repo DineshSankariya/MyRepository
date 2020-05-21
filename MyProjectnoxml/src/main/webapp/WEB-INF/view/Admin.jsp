@@ -115,6 +115,7 @@
 				</c:url>
 				<c:url var="alterq" value="/user/alterquestion">
 					<c:param name="alterquestion" value="${temp.id}"></c:param>
+					<c:param name="userid" value="${userid.id}"></c:param>
 				</c:url>
 				
 				<c:url var="result" value="/user/result">

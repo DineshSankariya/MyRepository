@@ -16,6 +16,7 @@ td {
 	padding: 10px;
 	/*background-color:buttonface;*/
 	height: 45px;
+	font-size:17px;
 }
 
 .cre{
@@ -46,3 +47,7 @@ tr:nth-child(even) {
   cursor: default;
 }
 
+.badge{
+	font-size:15px;
+	
+}

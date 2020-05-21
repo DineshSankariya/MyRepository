@@ -197,6 +197,7 @@ public class HomeController {
 
 		model.addAttribute("createsurvey", new SurveyTable());
 		model.addAttribute("userid",userid);
+		model.addAttribute("user",userdao.getuser(Integer.parseInt(userid)));
 		System.out.println(userid);
 		//System.out.println(request.getParameter("email"));
 		return "surveyform";
@@ -269,8 +270,9 @@ public class HomeController {
 	}
 
 	@RequestMapping("/alterquestion")
-	public String alterquestions(Model model, @RequestParam(value = "alterquestion") int id) {
+	public String alterquestions(Model model, @RequestParam(value = "alterquestion") int id,@RequestParam("userid")String userid) {
 		model.addAttribute("surveylink", userdao.listquestion(id));
+		model.addAttribute("user",userdao.getuser(Integer.parseInt(userid)));
 		return "alterquestion";
 	}
 
@@ -502,6 +504,13 @@ public class HomeController {
 		model.addAttribute("surveyid", surid);
 		model.addAttribute("surveyname", userdao.getsurvey(surid).getName());
 		return "Resultsurvey";
+
+	}
+	
+	@RequestMapping("usersurvey")
+	public String usersurvey() {
+		
+		return "usersurvey";
 
 	}
 	

@@ -77,7 +77,11 @@
 		</div>
 		</div>
 	</c:forEach>
-	<a href="${pageContext.request.contextPath}/user/admin" class="cen">Home
+	<c:url var="temp" value="LogIn">
+			<c:param name="email" value="${user.email}"></c:param>
+			<c:param name="password" value="${user.password}"></c:param>
+		</c:url>
+	<a href="${temp}" class="cen">Home
 					</a>
 </div>	
 </body>

@@ -89,14 +89,31 @@ $(document).ready(function(){
 							   data.push(object);
 			            }
 					
-					var seriesObject={
+					/*var seriesObject={
 							type:'pie',
 							name: 'Result',
 							data:data
 							
+					}*/
+					
+					var seriesObject={
+							name:name,
+							data:data,
+							dataLabels: {
+					            enabled: true,
+					            rotation: -90,
+					            color: '#FFFFFF',
+					            align: 'right',
+					            format: '{point.y:.1f}', // one decimal
+					            y: 10, // 10 pixels down from the top
+					            style: {
+					                fontSize: '13px',
+					                fontFamily: 'Verdana, sans-serif'
+					            }
+					        }
 					}
 					series.push(seriesObject);
-					drawchart(series); 
+					drawchart1(series); 
 				 }
 		
 		});
@@ -139,7 +156,52 @@ $(document).ready(function(){
 		});
 	}
 	
-		})
+	function drawchart1(result)
+	{
+		
+		
+		Highcharts.chart('container', {
+		    chart: {
+		        type: 'column'
+		    },
+		    title: {
+		        text: name
+		    },
+		    subtitle: {
+		        text: 'Source: '+name
+		    },
+		    xAxis: {
+		        type: 'category',
+		        labels: {
+		            rotation: -45,
+		            style: {
+		                fontSize: '13px',
+		                fontFamily: 'Verdana, sans-serif'
+		            }
+		        }
+		    },
+		    yAxis: {
+		        min: 0,
+		        title: {
+		            text: name
+		        }
+		    },
+		    legend: {
+		        enabled: false
+		    },
+		    tooltip: {
+		        pointFormat: name+': <b>{point.y:.1f} </b>'
+		    },
+		    series: result
+		    
+		});
+		
+		
+		
+		
+	}
+	
+})
 	
 	
 	</script>
