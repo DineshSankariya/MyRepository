@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
@@ -16,8 +17,10 @@ import com.Dinesh.DataBaseEntity.Question;
 import com.Dinesh.DataBaseEntity.Result;
 import com.Dinesh.DataBaseEntity.SurveyTable;
 import com.Dinesh.DataBaseEntity.User;
+import com.Dinesh.DataBaseEntity.UserSurvey;
 
 @Repository
+@Service
 public class UserDao implements UserDaoInterface {
 
 	@Autowired
@@ -416,6 +419,27 @@ public class UserDao implements UserDaoInterface {
 		 */
 		List<Result> user = (List<Result>) sur.getResult();
 		return user;
+	}
+
+	@Override
+	@Transactional
+	public Boolean sendsurvey(int sid, int uid) {
+		
+		Session cSession=sessionFactory.getCurrentSession();
+		SurveyTable surveyTable=cSession.get(SurveyTable.class, sid);
+		User user=cSession.get(User.class, uid);
+		UserSurvey userSurvey=new UserSurvey();
+		surveyTable.addusersurvey(userSurvey);
+		user.addusersurvey(userSurvey);		
+		try {
+			cSession.saveOrUpdate(userSurvey);
+			return true;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			
+		}
+			return false;
+		
 	}
 
 }

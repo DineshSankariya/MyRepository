@@ -1,6 +1,8 @@
 package com.Dinesh.DataBaseEntity;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -44,6 +46,12 @@ public class SurveyTable {
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@JsonManagedReference
 	private Set<Result> result;
+	
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "surveyTable")
+	@Cascade({CascadeType.ALL})
+	private List<UserSurvey> usersurvey;
+	
+	
 
 	public SurveyTable() {
 	}
@@ -88,6 +96,18 @@ public class SurveyTable {
 		
 		addquestion.setSurveyid(this);
 	}
+	
+	public void addusersurvey(UserSurvey newsurvey) {
+		
+		if(this.usersurvey==null) {
+			this.usersurvey=new ArrayList<UserSurvey>();
+		}
+		
+		this.usersurvey.add(newsurvey);
+		
+		newsurvey.setSurveyTable(this);
+	}
+	
 
 	public int getId() {
 		return id;

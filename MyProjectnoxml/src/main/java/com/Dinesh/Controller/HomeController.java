@@ -507,14 +507,30 @@ public class HomeController {
 
 	}
 	
-	@RequestMapping("usersurvey")
+	@RequestMapping("/usersurvey")
 	public String usersurvey() {
 		
 		return "usersurvey";
 
 	}
 	
+	@RequestMapping("/sendsurvey")
+	public String sendsurvey(HttpServletRequest request,Model model) {
+		
+		int sur_id=Integer.parseInt(request.getParameter("surveyid"));
+		int user_id=Integer.parseInt(request.getParameter("userid"));
+		model.addAttribute("sid",userdao.getsurvey(sur_id));
+		model.addAttribute("users",userdao.listcutomer());
+		model.addAttribute("userid",userdao.getuser(user_id));
+		
+		return "sendusersurvey";
+	}
 	
-	
-	
+	@RequestMapping("/send")
+	public void send() {
+		
+		
+		
+
+	}
 }

@@ -28,7 +28,6 @@ public interface UserDaoInterface {
 	
 	public List<Question> getquestion1();
 	
-	
 	public List<User> listcutomer();
 	
 	public List<SurveyTable> listsurvey();
@@ -53,12 +52,12 @@ public interface UserDaoInterface {
 	
 	public Map<String, Integer> getresult(SurveyTable id,Question que);
 
-
 	List<User> getuserrest(String name);
 	
 	void saveresult(User user,SurveyTable survey,Result result);
 	
 	 List<Result> getresultonly(SurveyTable id);
 	
+	 Boolean sendsurvey(int sid,int uid);
 	
 }

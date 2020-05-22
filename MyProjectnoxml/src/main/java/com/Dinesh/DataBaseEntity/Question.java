@@ -56,6 +56,7 @@ public class Question {
 		this.cho2 = cho2;
 		this.cho3 = cho3;
 		this.cho4 = cho4;
+		
 	}
 
 	public int getQid() {

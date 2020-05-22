@@ -55,6 +55,10 @@ public class User {
 	@Cascade({CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH,CascadeType.REMOVE})
 	@JsonManagedReference
 	private List<Result> result;
+	
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "user")
+	@Cascade({CascadeType.ALL})
+	private List<UserSurvey> usersurvey;
 
 	public User() {
 	}
@@ -81,6 +85,17 @@ public class User {
 		this.result.add(res);
 		
 		res.setUserid(this);
+	}
+	
+	public void addusersurvey(UserSurvey newsurvey) {
+		
+		if(this.usersurvey==null) {
+			this.usersurvey=new ArrayList<UserSurvey>();			
+		}
+		
+		this.usersurvey.add(newsurvey);
+		newsurvey.setUser(this);
+				
 	}
 
 	public int getId() {

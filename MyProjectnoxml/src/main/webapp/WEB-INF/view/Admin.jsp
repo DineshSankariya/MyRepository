@@ -23,8 +23,6 @@
 	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 	crossorigin="anonymous"></script>
 
-<style type="text/css">
-</style>
 <title>Admin Page</title>
 <script type="text/javascript">
 	/*$(document).ready(function() {
@@ -121,6 +119,10 @@
 				<c:url var="result" value="/user/result">
 					<c:param name="surveyid" value="${temp.id}"></c:param>
 				</c:url>
+				<c:url var="tosend" value="/user/sendsurvey">
+					<c:param name="surveyid" value="${temp.id}"></c:param>
+					<c:param name="userid" value="${userid.id}"></c:param>
+				</c:url>
 
 				<tr>
 					<td>${loop.count}</td>
@@ -177,7 +179,7 @@
 					if(linkset){%> <a href="${Gosurvey}" class="badge badge-success"> Go</a>
 					<%}else{
 					%><a href="#" class="badge badge-danger disable"> Go</a><%} %> | <a
-						href="${alterq}" class="badge badge-info"> Alter Question</a> |
+						href="${alterq}" class="badge badge-info"> Alter Question</a> | <a href="${tosend}" class="badge badge-primary" >Send</a> |
 						<a href="${result}" class="badge badge-success"> Result</a></td>
 				</tr>
 
