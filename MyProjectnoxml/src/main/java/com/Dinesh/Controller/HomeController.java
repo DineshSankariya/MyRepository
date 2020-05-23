@@ -522,13 +522,23 @@ public class HomeController {
 		model.addAttribute("sid",userdao.getsurvey(sur_id));
 		model.addAttribute("users",userdao.listcutomer());
 		model.addAttribute("userid",userdao.getuser(user_id));
-		
+		model.addAttribute("admin",user_id);
+		System.out.println("Admin id --------->"+user_id);
 		return "sendusersurvey";
 	}
 	
 	@RequestMapping("/send")
-	public void send() {
+	public String send(HttpServletRequest request,HttpServletResponse response) {
 		
+		int sid=Integer.parseInt(request.getParameter("surveyid"));
+		int uid=Integer.parseInt(request.getParameter("userid"));
+		System.out.println(request.getParameter("admin"));
+		System.out.println(userdao.sendsurvey(sid, uid));
+		int adminid=Integer.parseInt(request.getParameter("admin"));
+		User admin=userdao.getuser(adminid);
+		
+		
+		return "redirect:/user/sendsurvey?surveyid="+sid+"&userid="+admin.getId();
 		
 		
 
