@@ -18,6 +18,7 @@ import com.Dinesh.DataBaseEntity.Result;
 import com.Dinesh.DataBaseEntity.SurveyTable;
 import com.Dinesh.DataBaseEntity.User;
 import com.Dinesh.DataBaseEntity.UserSurvey;
+import com.mysql.cj.Query;
 
 @Repository
 @Service
@@ -429,16 +430,28 @@ public class UserDao implements UserDaoInterface {
 		SurveyTable surveyTable=cSession.get(SurveyTable.class, sid);
 		User user=cSession.get(User.class, uid);
 		UserSurvey userSurvey=new UserSurvey();
-		surveyTable.addusersurvey(userSurvey);
-		user.addusersurvey(userSurvey);		
+		
 		try {
+			
+			
+			org.hibernate.Query<UserSurvey> query=null;
+			query=cSession.createQuery("from UserSurvey where user="+user.getId()+"AND surveyTable="+surveyTable.getId(),UserSurvey.class);
+			List<UserSurvey> result;
+			result=query.getResultList();
+			if(result.size()>0) {
+				return false;
+			}
+			
+			
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());	
+			return false;
+		}
+			surveyTable.addusersurvey(userSurvey);
+			user.addusersurvey(userSurvey);	
 			cSession.saveOrUpdate(userSurvey);
 			return true;
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			
-		}
-			return false;
 		
 	}
 

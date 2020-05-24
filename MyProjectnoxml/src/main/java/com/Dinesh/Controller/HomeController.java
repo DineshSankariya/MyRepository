@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.Dinesh.DAO.UserDaoInterface;
@@ -528,17 +529,30 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/send")
-	public String send(HttpServletRequest request,HttpServletResponse response) {
+	public ModelAndView send(HttpServletRequest request,HttpServletResponse response) {
 		
 		int sid=Integer.parseInt(request.getParameter("surveyid"));
 		int uid=Integer.parseInt(request.getParameter("userid"));
 		System.out.println(request.getParameter("admin"));
-		System.out.println(userdao.sendsurvey(sid, uid));
+		boolean send=userdao.sendsurvey(sid, uid);
 		int adminid=Integer.parseInt(request.getParameter("admin"));
 		User admin=userdao.getuser(adminid);
+		ModelAndView modelAndView=new ModelAndView();
+		modelAndView.addObject("sid",userdao.getsurvey(sid));
+		modelAndView.addObject("users",userdao.listcutomer());
+		modelAndView.addObject("userid",userdao.getuser(adminid));
+		modelAndView.addObject("admin",adminid);
+		if(send) {
+			modelAndView.addObject("sendstatus",true);
+		}else {
+			modelAndView.addObject("sendstatus",false);
+		}
+		
+		modelAndView.setViewName("sendusersurvey");
 		
 		
-		return "redirect:/user/sendsurvey?surveyid="+sid+"&userid="+admin.getId();
+		return modelAndView;
+		
 		
 		
 

@@ -19,6 +19,7 @@
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <link rel="stylesheet" style="text/css"
 	href="${pageContext.request.contextPath}/resources/css/admin.css" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Roboto:wght@500;700&display=swap" rel="stylesheet">	
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
 	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 	crossorigin="anonymous"></script>
@@ -190,7 +191,7 @@
 
 	</div>
 	<div style="text-align: center;padding-top: 30px;">
-		<a href="${pageContext.request.contextPath}/user/Log?logout">Log Out</a>
+		<a href="${pageContext.request.contextPath}/user/Log?logout" class="btn btn-outline-dark logout">Log Out</a>
 	</div>
 	<div id="dynamicpage"></div>
 

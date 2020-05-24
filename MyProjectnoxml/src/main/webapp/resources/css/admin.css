@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+*{
+	font-family: 'Roboto', sans-serif;
+	font-weight: 700;
+}
+body{
+	background-color:#f9fcfb;
+}
+
 table{
 	
 	margin: 0 auto;
@@ -9,6 +18,9 @@ th{
 	padding: 10px;
 	background-color:#52de97;
 	height: 55px;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+	font-size: 18px;
 }
 
 td {
@@ -30,8 +42,11 @@ td {
 }
 
 .logout{
-	margin-left:45%;
-	padding: 30px;
+	/*margin-left:45%;*/
+	/*padding: 30px;*/
+	font-family: 'Poppins', sans-serif;	
+	font-weight: 600;
+	transition:0.7s background-color;
 }
 
 tr:nth-child(odd){
@@ -48,6 +63,5 @@ tr:nth-child(even) {
 }
 
 .badge{
-	font-size:15px;
-	
+	font-size:15px;	
 }
