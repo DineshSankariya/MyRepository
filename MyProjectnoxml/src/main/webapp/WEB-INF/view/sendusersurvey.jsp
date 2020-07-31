@@ -53,6 +53,21 @@ overflow: hidden;
 
 }
 
+#hello{
+
+	font-size: 22px;padding: 5px 5px 5px 5px;
+	background-color: #0779e4;
+	color:white;
+	border:1px solid #0779e4;
+	border-radius:8px;
+}
+
+#hello:hover{
+	border:1px solid #15cda8;
+	background-color: #15cda8;
+	color:black;
+}
+
 
 </style>
 </head>
@@ -88,7 +103,7 @@ overflow: hidden;
 			<td>${temp.fname}</td>
 			<td>${temp.lname}</td>
 			<td>${sid.name}</td>
-			<td><a href="${send}"  ><i class="far fa-arrow-alt-circle-up " style="font-size: 30px;padding: 2px 12px 2px 12px;color:#01d28e;"></i>  </a></td>			
+			<td><a href="${send}"  ><i class="far fa-arrow-alt-circle-up" id="hello" ></i>  </a></td>			
 	</tr>
 	</c:forEach>	
 </table>

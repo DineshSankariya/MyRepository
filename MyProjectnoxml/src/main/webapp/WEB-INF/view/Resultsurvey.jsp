@@ -9,16 +9,17 @@
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 </head>
 <body>
+
+	
 <script src="https://code.highcharts.com/highcharts.js"></script>
 
 <script src="https://code.highcharts.com/highcharts-3d.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-	crossorigin="anonymous"></script>
-	<div id="container"></div>
+
+	<div id="container" ></div>
 	<input type="hidden" value="${surveyid}" id="surid">
 	<input type="hidden" value="${surveyname}" id="surname">
+<script src="${pageContext.request.contextPath}/resources/javascript/jquery-3.4.1.js"></script>	
 <script type="text/javascript">
 	
 	/*$(document).ready(
@@ -96,7 +97,7 @@ $(document).ready(function(){
 							
 					}*/
 					
-					var seriesObject={
+					/*var seriesObject={
 							name:name,
 							data:data,
 							dataLabels: {
@@ -111,16 +112,22 @@ $(document).ready(function(){
 					                fontFamily: 'Verdana, sans-serif'
 					            }
 					        }
+					}*/
+					
+					var seriesObject={
+							name: "Browsers",
+				            colorByPoint: true,
+				            data:data
 					}
 					series.push(seriesObject);
-					drawchart1(series); 
+					drawchart2(series); 
 				 }
 		
 		});
 	
 	
 	function drawchart(result){	
-		Highcharts.chart('container', {
+		 Highcharts.chart('container', {
 		    chart: {
 		        type: 'pie',
 		        options3d: {
@@ -199,6 +206,55 @@ $(document).ready(function(){
 		
 		
 		
+	}
+	
+	
+	function drawchart2(result){
+		document.getElementById('container').text= Highcharts.chart('container', {
+		    chart: {
+		        type: 'column'
+		    },
+		    title: {
+		        text: name
+		    },
+		    subtitle: {
+		        text: name
+		    },
+		    accessibility: {
+		        announceNewData: {
+		            enabled: true
+		        }
+		    },
+		    xAxis: {
+		        type: 'category'
+		    },
+		    yAxis: {
+		        title: {
+		            text: name
+		        }
+
+		    },
+		    legend: {
+		        enabled: false
+		    },
+		    plotOptions: {
+		        series: {
+		            borderWidth: 0,
+		            dataLabels: {
+		                enabled: true,
+		                format: '{point.y:.1f}%'
+		            }
+		        }
+		    },
+
+		    tooltip: {
+		        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+		        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+		    },
+
+		    series: result
+		   
+		});
 	}
 	
 })

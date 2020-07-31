@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+ 
 
 import com.Dinesh.DataBaseEntity.Question;
 import com.Dinesh.DataBaseEntity.Result;
@@ -43,6 +43,8 @@ public class UserDao implements UserDaoInterface {
 
 		Session currentsession = sessionFactory.getCurrentSession();
 		org.hibernate.query.Query<User> query = null;
+		
+	
 		String hql;
 		List<User> userlist;
 		if (email != null && password != null) {
@@ -71,7 +73,10 @@ public class UserDao implements UserDaoInterface {
 	@Transactional
 	public Boolean checkAdmin(String email, String password) {
 		Session currentsession = sessionFactory.getCurrentSession();
+		
 		org.hibernate.query.Query<User> query = null;
+		
+		
 		String hql;
 		List<User> userlist;
 		if (email != null && password != null) {
